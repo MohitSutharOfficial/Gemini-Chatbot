@@ -1,16 +1,21 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import SimpleLayout from './components/Layout/SimpleLayout';
 import ChatPage from './components/Chat/ChatPage';
+import { Box, AppBar, Toolbar, Typography } from '@mui/material';
 
 function App() {
     return (
-        <Routes>
-            <Route path="/" element={<SimpleLayout />}>
-                <Route index element={<ChatPage />} />
-                <Route path="*" element={<ChatPage />} />
-            </Route>
-        </Routes>
+        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+            <AppBar position="static">
+                <Toolbar>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        Gemini AI Chatbot
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+            <Box sx={{ flex: 1, p: 2 }}>
+                <ChatPage />
+            </Box>
+        </Box>
     );
 }
 

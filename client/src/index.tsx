@@ -1,13 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
-import { Toaster } from 'react-hot-toast';
 import App from './App';
-import './styles/global.css';
 
-// Simple theme
 const theme = createTheme({
     palette: {
         mode: 'light',
@@ -26,22 +22,10 @@ const root = ReactDOM.createRoot(
 
 function AppWrapper() {
     return (
-        <BrowserRouter>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <App />
-                <Toaster
-                    position="top-right"
-                    toastOptions={{
-                        duration: 4000,
-                        style: {
-                            borderRadius: '8px',
-                            fontSize: '14px'
-                        }
-                    }}
-                />
-            </ThemeProvider>
-        </BrowserRouter>
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <App />
+        </ThemeProvider>
     );
 }
 
