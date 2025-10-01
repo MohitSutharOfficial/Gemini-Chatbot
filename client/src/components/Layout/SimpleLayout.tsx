@@ -1,8 +1,11 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
 import { Box, CssBaseline, AppBar, Toolbar, Typography } from '@mui/material';
 
-const SimpleLayout: React.FC = () => {
+interface SimpleLayoutProps {
+    children: React.ReactNode;
+}
+
+const SimpleLayout: React.FC<SimpleLayoutProps> = ({ children }) => {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <CssBaseline />
@@ -18,7 +21,7 @@ const SimpleLayout: React.FC = () => {
             </AppBar>
             <Box sx={{ flex: 1, display: 'flex' }}>
                 <Box component="main" sx={{ flex: 1, p: 3 }}>
-                    <Outlet />
+                    {children}
                 </Box>
             </Box>
         </Box>

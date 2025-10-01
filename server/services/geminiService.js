@@ -5,7 +5,7 @@ class GeminiService {
         if (!process.env.GEMINI_API_KEY) {
             throw new Error('GEMINI_API_KEY environment variable is required');
         }
-        
+
         this.genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
         this.model = this.genAI.getGenerativeModel({ model: 'gemini-pro' });
     }
