@@ -54,16 +54,15 @@ const ChatPage: React.FC = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    message: inputMessage,
-                    conversationId: 'default-conversation' // Simple default conversation
+                    message: inputMessage
                 })
             });
 
-            if (!response.ok) {
-                throw new Error('Failed to get response');
-            }
-
             const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Failed to get response');
+            }
 
             const botMessage: Message = {
                 id: (Date.now() + 1).toString(),
